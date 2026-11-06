@@ -675,7 +675,36 @@
         padding: 8px 16px;
     }
 }
-</style></head>
+</style>
+<style id="s77-direct-draw-style">
+/* S77: only show product-specific lottery actions, not generic LINE friend cards */
+#stores-title,#stores-subtitle,#storeGrid,body > .filter-btn-group{display:none!important}
+#page-draws{display:block!important}
+#page-draws .draw-item{gap:10px}
+#page-draws .s77-direct-draw-btn{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:92px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:#00c300;
+  color:#fff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800;
+  line-height:1;
+}
+#page-draws .draw-item.quick-drawn .s77-direct-draw-btn{
+  background:#a0a0a0;
+}
+@media(max-width:520px){
+  #page-draws .draw-item{align-items:center}
+  #page-draws .s77-direct-draw-btn{min-width:82px;padding:8px 10px;font-size:12px}
+}
+</style>
+</head>
 <body>
 <h1 id="stores-title" style="display:none;; display:none !important">LINE 門市帳號一鍵快速加好友</h1>
 <p class="subtitle" id="stores-subtitle" style="display:none;; display:none !important">上方可直接依縣市篩選門市；點擊右側按鈕會開啟 LINE App 加好友（已點過會自動變灰色）</p>
@@ -2505,6 +2534,40 @@ function render() {
             resetDrawGrayState();
         }
     });
+})();
+</script>
+
+<script id="s77-direct-draw-script">
+(function(){
+  function addDirectButtons(){
+    document.querySelectorAll('#page-draws .draw-item[data-draw-href]').forEach(function(row){
+      if(row.querySelector('.s77-direct-draw-btn')) return;
+      var href=row.getAttribute('data-draw-href');
+      if(!href) return;
+      var a=document.createElement('a');
+      a.className='s77-direct-draw-btn';
+      a.href=href;
+      a.target='_blank';
+      a.rel='noopener noreferrer';
+      a.textContent='直接抽籤';
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        if(typeof window.openDrawRow==='function'){
+          window.openDrawRow(e,row);
+        }else{
+          window.open(href,'_blank','noopener,noreferrer');
+        }
+      });
+      row.appendChild(a);
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',addDirectButtons);
+  }else{
+    addDirectButtons();
+  }
+  window.addEventListener('pageshow',addDirectButtons);
 })();
 </script>
 </body>
