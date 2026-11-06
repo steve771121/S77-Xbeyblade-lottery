@@ -5,123 +5,131 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>S77 戰鬥陀螺抽籤助手</title>
 <style>
-:root{--bg:#f4f6f8;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#06c755;--blue:#2563eb;--border:#e5e7eb;--orange:#f59e0b}
+:root{--bg:#f3f5f8;--card:#fff;--text:#172033;--muted:#6b7280;--green:#06c755;--blue:#2563eb;--navy:#0f172a;--border:#e5e7eb;--red:#dc2626}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",Arial,sans-serif}
-.wrap{max-width:1120px;margin:auto;padding:18px 14px 50px}
-.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border-radius:22px;padding:22px;box-shadow:0 12px 30px rgba(15,23,42,.16)}
-.hero h1{margin:0 0 8px;font-size:28px}.hero p{margin:5px 0;color:#dbeafe;line-height:1.6}.updated{font-size:12px;color:#bfdbfe}
-.products{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.product{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:9px 12px;border-radius:999px;font-weight:700;font-size:13px}
-.notice{margin:14px 0;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:14px;padding:12px 14px;line-height:1.65;font-size:14px}
-.toolbar{position:sticky;top:0;z-index:5;background:rgba(244,246,248,.94);backdrop-filter:blur(10px);padding:12px 0 10px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.btn{border:1px solid var(--border);background:#fff;color:#374151;border-radius:999px;padding:8px 12px;font-weight:700;cursor:pointer}.btn.active{background:#111827;color:#fff;border-color:#111827}.btn.danger{color:#b91c1c}
+.wrap{max-width:1120px;margin:auto;padding:14px 12px 48px}
+.hero{background:linear-gradient(135deg,#0f172a,#1d4ed8);color:#fff;border-radius:20px;padding:20px;box-shadow:0 12px 28px rgba(15,23,42,.16)}
+.hero h1{margin:4px 0 8px;font-size:28px}.hero p{margin:5px 0;color:#dbeafe;line-height:1.6}.stamp{font-size:12px;color:#bfdbfe}
+.statrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.pill{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);padding:8px 11px;border-radius:999px;font-weight:800;font-size:13px}
+.alert{margin:12px 0;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;border-radius:14px;padding:12px 14px;line-height:1.6;font-size:14px}
+.tabs{display:flex;gap:8px;margin:14px 0 10px}.tab{flex:1;border:1px solid var(--border);background:#fff;border-radius:12px;padding:11px;font-weight:900;cursor:pointer}.tab.active{background:var(--navy);color:#fff}
+.toolbar{position:sticky;top:0;z-index:6;background:rgba(243,245,248,.94);backdrop-filter:blur(10px);padding:9px 0}
+.row{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.btn{border:1px solid var(--border);background:#fff;color:#374151;border-radius:999px;padding:8px 11px;font-weight:750;cursor:pointer}.btn.active{background:#111827;color:#fff;border-color:#111827}.btn.red{color:#b91c1c}
 .search{width:100%;border:1px solid var(--border);background:#fff;border-radius:12px;padding:11px 13px;font-size:16px}
-.summary{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13px;color:var(--muted);margin:10px 2px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.card.checked{opacity:.52}.top{display:flex;justify-content:space-between;gap:10px}.name{font-weight:800;font-size:16px}.meta{font-size:12px;color:var(--muted);margin-top:5px}.badge{font-size:11px;font-weight:800;border-radius:999px;padding:5px 8px;background:#eef2ff;color:#3730a3;height:max-content}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.actions.one{grid-template-columns:1fr}
-.action{display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:10px;padding:10px;font-weight:800;font-size:14px}.line{background:var(--line);color:#fff}.fb{background:#1877f2;color:#fff}.action.visited{filter:grayscale(1);opacity:.55}
+.summary{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin:10px 2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:11px}
+.card{background:#fff;border:1px solid var(--border);border-radius:15px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.035)}
+.card.checked{opacity:.48}.top{display:flex;justify-content:space-between;gap:9px}.name{font-size:16px;font-weight:850}.meta{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.45}.badge{font-size:11px;font-weight:850;border-radius:999px;padding:5px 8px;background:#eef2ff;color:#3730a3;height:max-content}
+.product{margin-top:10px;padding:9px 10px;background:#f8fafc;border-radius:10px;font-size:14px;font-weight:800}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}.actions.one{grid-template-columns:1fr}.action{display:flex;justify-content:center;text-decoration:none;border-radius:10px;padding:10px;font-weight:850;font-size:14px}.draw{background:var(--green);color:#fff}.line{background:var(--green);color:#fff}.fb{background:#1877f2;color:#fff}
 .empty{display:none;text-align:center;padding:35px;color:var(--muted)}
-footer{margin-top:24px;color:#6b7280;font-size:12px;line-height:1.6;text-align:center}
-@media(max-width:560px){.hero h1{font-size:23px}.wrap{padding:10px 10px 36px}.hero{border-radius:16px;padding:18px}.grid{grid-template-columns:1fr}.toolbar{top:0}.product{font-size:12px}.summary{align-items:flex-start;flex-direction:column}}
+.sectiontitle{font-size:18px;font-weight:900;margin:16px 2px 8px}
+footer{margin-top:25px;color:#6b7280;font-size:12px;text-align:center;line-height:1.6}
+@media(max-width:560px){.wrap{padding:9px 9px 36px}.hero{border-radius:15px;padding:17px}.hero h1{font-size:23px}.grid{grid-template-columns:1fr}.summary{flex-direction:column}.pill{font-size:12px}.actions{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <section class="hero">
-    <div class="updated">資料版本：2026/11/05</div>
-    <h1>S77 戰鬥陀螺抽籤助手</h1>
-    <p>11/04 起，Funbox 指定新品重新採 LINE 抽選。各店實際配貨、開始與截止時間不同，請以各門市 LINE／Facebook 公告為準。</p>
-    <div class="products">
-      <span class="product">BX-52 輝耀龍騎士 6-60LC</span>
-      <span class="product">BX-53 極限衝擊對戰組</span>
-      <span class="product">BX-56 左迴旋旋風發射器（白紫）</span>
-    </div>
-  </section>
+<section class="hero">
+  <div class="stamp">最新資料：2026/11/06 08:40</div>
+  <h1>S77 戰鬥陀螺抽籤助手</h1>
+  <p><b>11/06 11/07 抽選</b> 已整理完成。本輪目前公開抽選品項為 BX-53 極限衝擊對戰組。</p>
+  <div class="statrow"><span class="pill">本輪 48 家</span><span class="pill">BX-53 極限衝擊對戰組</span><span class="pill">抽選至 11/07</span></div>
+</section>
 
-  <div class="notice">這一版改用你提供的最新門市主資料：Funbox 68 家＋來玩聚 10 家，共 78 家。因主資料表沒有逐店抽選直連，這版改成直接進門市 LINE／粉專查看當下最新抽選，避免誤點已過期連結。</div>
+<div class="alert">今天 11/06 已進入新一輪抽選。點「立即抽選」會直接開門市抽選連結；點過會自動變灰，方便你一路往下抽。</div>
 
-  <div class="toolbar">
-    <div class="row" id="brandFilters"></div>
-    <div class="row" id="regionFilters"></div>
-    <input id="q" class="search" placeholder="搜尋門市、縣市、LINE ID…" autocomplete="off">
-    <div class="row" style="margin-top:8px">
-      <button class="btn" id="uncheckedBtn">只看未檢查</button>
-      <button class="btn" id="nextBtn">下一家 LINE</button>
-      <button class="btn danger" id="clearBtn">清除檢查紀錄</button>
-    </div>
+<div class="tabs">
+  <button id="tabActive" class="tab active">本輪抽選 (48)</button>
+  <button id="tabStores" class="tab">全部門市 (78)</button>
+</div>
+
+<div class="toolbar">
+  <div class="row" id="regionFilters"></div>
+  <input id="q" class="search" placeholder="搜尋門市、縣市、商品…" autocomplete="off">
+  <div class="row" style="margin-top:8px">
+    <button class="btn" id="uncheckedBtn">只看未抽</button>
+    <button class="btn" id="nextBtn">下一家抽選</button>
+    <button class="btn red" id="clearBtn">清除紀錄</button>
   </div>
+</div>
 
-  <div class="summary"><span id="countText"></span><span id="progressText"></span></div>
-  <div id="grid" class="grid"></div>
-  <div id="empty" class="empty">目前沒有符合條件的門市。</div>
+<div class="summary"><span id="countText"></span><span id="progressText"></span></div>
+<div id="grid" class="grid"></div>
+<div id="empty" class="empty">目前沒有符合條件的門市。</div>
 
-  <footer>
-    Funbox 門市資料來源：使用者提供的 Google Sheet「Funbox 戰鬥陀螺LINE抽選 各店資料表」。<br>
-    抽選商品資訊更新至 2026/11/05；實際品項、庫存與抽選時間仍以各門市官方公告為準。
-  </footer>
+<footer>本輪抽選資料比對自公開門市抽選整理；全門市基礎資料沿用你提供的 Google Sheet。實際抽選時間、庫存與購買資格仍以各門市 LINE／Facebook 公告為準。</footer>
 </div>
 <script>
+const ACTIVE=[{"city":"台北市","name":"Funbox-天母SOGO店","time":"抽選開始：2026/11/06 11:00 ｜ 抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/Tvg4gmQ"},{"city":"台北市","name":"Funbox-南港潤泰","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/PDLwxMi"},{"city":"台北市","name":"Funbox-大葉高島屋店","time":"抽選開始：2026/11/06 11:00 ｜ 購買資格券有效期間：2026/11/06 11:00~22:00、2026/11/07 11:00~21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/vvvRyVH"},{"city":"台北市","name":"Funbox-新光三越南西店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/6RUJsXy"},{"city":"台北市","name":"Funbox-信義A8","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/zFsHsNC"},{"city":"台北市","name":"Funbox-台北大巨蛋","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:30","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/pwLOJHL"},{"city":"台北市","name":"Funbox-美麗華","time":"抽選開始：2026/11/06 11:00 ｜ 抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/Zkgl6KR"},{"city":"台北市","name":"Funbox-天母三越店","time":"抽選開始：2026/11/06 11:00 ｜ 抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/VmSR2SW"},{"city":"台北市","name":"Funbox-新光三越站前店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/XYb3WDA"},{"city":"新北市","name":"Funbox-中和環球店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/6t8OV07"},{"city":"新北市","name":"Funbox-汐科遠雄店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/sMjqSbg"},{"city":"新北市","name":"Funbox-板橋大遠百","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/pdG2WRf"},{"city":"新北市","name":"Funbox-板橋遠百中山店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/XnFY0wC"},{"city":"新北市","name":"Funbox-淡水禮萊廣場店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/6Zz23bD"},{"city":"新北市","name":"Funbox-新店誠品-裕隆城","time":"抽選開放：2026/11/06 11:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/w7Lm5za"},{"city":"新北市","name":"Funbox-宏匯廣場","time":"抽選/購買時間：2026/11/06 11:00~22:00、2026/11/07 11:00~22:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/9sKv9Ek"},{"city":"桃園市","name":"Funbox-桃園新光站前店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/WEWWtTB"},{"city":"新竹市","name":"Funbox-新竹遠東店","time":"抽選/購買時間：2026/11/06～2026/11/07 ｜ 櫃台結帳時間：每日 11:00~21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/XGDunvA"},{"city":"新竹市","name":"Funbox-新竹遠雄","time":"抽選/購買時間：2026/11/06 11:00～2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/oAWkyiI"},{"city":"新竹市","name":"Funbox-新竹巨城","time":"抽選/購買時間（依門市營業時間推估）：2026/11/06 11:00~22:00、2026/11/07 11:00~22:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/UwJ5crG"},{"city":"新竹縣","name":"Funbox-竹北遠東店","time":"抽選/兌獎/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/nh8N2rC"},{"city":"台中市","name":"Funbox-新光三越台中中港店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/yduBiAE"},{"city":"台中市","name":"Funbox-台中港三井","time":"抽籤時間/使用期限：2026/11/06 11:00~2026/11/07 20:30","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/ORS4uRs"},{"city":"台中市","name":"Funbox-台中中友","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/Xls9IhsE"},{"city":"台中市","name":"Funbox-豐原太平洋店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/NiTp9aN"},{"city":"台中市","name":"Funbox-廣三SOGO","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/ucNt4EJ"},{"city":"雲林縣","name":"Funbox-斗六家樂福","time":"抽選/購買時間：2026/11/06 10:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/9SCnRAA"},{"city":"嘉義市","name":"Funbox-嘉義遠東","time":"抽選資格時間：2026/11/06 11:00~2026/11/07 21:00 ｜ 中籤購買時間：11/06 11:00~22:00、11/07 11:00~21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/qT7lL54"},{"city":"嘉義市","name":"Funbox-嘉義三越","time":"抽選開放：2026/11/06 11:00 ｜ 購買資格券有效期間：11/06 11:00~22:00、11/07 11:00~21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/PPJa8qB"},{"city":"台南市","name":"Funbox-台南三井","time":"抽選/購買資格時間：2026/11/06 11:00~2026/11/07 20:30","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/OcLE0No"},{"city":"台南市","name":"Funbox-新仁店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 20:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/8J8uWXa"},{"city":"台南市","name":"Funbox-南紡購物中心","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/6DjeVDP"},{"city":"台南市","name":"Funbox-台南遠百店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/uTNylL8"},{"city":"台南市","name":"Funbox-台南新天地","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/9iwDfob"},{"city":"高雄市","name":"Funbox-高雄漢神店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/PsIA9y7Q"},{"city":"高雄市","name":"Funbox-夢時代店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/6cABqwU"},{"city":"高雄市","name":"Funbox-大魯閣新光","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/qp5A2CG"},{"city":"高雄市","name":"Funbox-鳳山來玩聚","time":"抽選/販售時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/XnU9eyl"},{"city":"高雄市","name":"Funbox-楠梓店","time":"抽選/購買時間：2026/11/06 10:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/PpVQMlN"},{"city":"高雄市","name":"Funbox-新楠店","time":"抽選/購買時間：2026/11/06 10:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/ObOlKaZ"},{"city":"高雄市","name":"Funbox-高雄大遠百","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/yNKVKHo"},{"city":"高雄市","name":"Funbox-漢神巨蛋店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/7YXUCTu"},{"city":"高雄市","name":"Funbox-高雄SOGO店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/P72hRM3"},{"city":"屏東縣","name":"Funbox-屏東太平洋店","time":"抽選/購買資格時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/pE1w1ZJ"},{"city":"屏東縣","name":"Funbox-屏東環球","time":"抽選/購買資格時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/TGlOKTH"},{"city":"宜蘭縣","name":"Funbox-宜蘭新月廣場店","time":"抽選開始：2026/11/06 11:00 ｜ 購買資格券有效期間：2026/11/06 11:00~22:00、2026/11/07 11:00~21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/wYBwDB7"},{"city":"花蓮縣","name":"Funbox-花蓮店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/5nondXS"},{"city":"台東縣","name":"Funbox-台東秀泰店","time":"抽選/購買時間：2026/11/06 11:00~2026/11/07 21:00","product":"BX-53 極限衝擊對戰組","href":"https://lin.ee/vm13nnh"}];
 const STORES=[{"name":"台北忠孝遠東SOGO","fb":"https://www.facebook.com/funboxsogo","line":"@lcn7452p","region":"台北市","brand":"Funbox"},{"name":"三越南西","fb":"https://www.facebook.com/share/1BuSqwADRT/","line":"@626iceit","region":"台北市","brand":"Funbox"},{"name":"三越站前","fb":"https://www.facebook.com/profile.php?id=61593176934292","line":"@631ovgxp","region":"台北市","brand":"Funbox"},{"name":"天母SOGO","fb":"https://www.facebook.com/profile.php?id=61592597564673","line":"@377cbfue","region":"台北市","brand":"Funbox"},{"name":"高島屋百貨","fb":"https://www.facebook.com/ybg5152n#","line":"@xbm4599s","region":"台北市","brand":"Funbox"},{"name":"比漾廣場","fb":"https://www.facebook.com/profile.php?id=61592677934745","line":"@ufq5307a","region":"新北市","brand":"Funbox"},{"name":"桃園站前","fb":"https://www.facebook.com/profile.php?id=100064059014450#","line":"@fcm1241y","region":"桃園市","brand":"Funbox"},{"name":"桃園遠東","fb":"https://www.facebook.com/profile.php?id=100064240476385","line":"@bix0595a","region":"桃園市","brand":"Funbox"},{"name":"信義新天地A8館","fb":"https://www.facebook.com/profile.php?id=61593106704912&locale=zh_TW","line":"@983dfazy","region":"台北市","brand":"Funbox"},{"name":"新竹遠東","fb":"https://www.facebook.com/profile.php?id=61591842121755","line":"@822rfnmr","region":"新竹市","brand":"Funbox"},{"name":"中壢SOGO","fb":"https://www.facebook.com/profile.php?id=61558958859748","line":"@xcs3672w","region":"桃園市","brand":"Funbox"},{"name":"板橋遠東","fb":"https://www.facebook.com/share/1BmnHxAaZ7/?mibextid=wwXIfr","line":"@083zoknr","region":"新北市","brand":"Funbox"},{"name":"中和環球","fb":"https://www.facebook.com/profile.php?id=61575325211390&locale=zh_TW","line":"@zgq9395a","region":"新北市","brand":"Funbox"},{"name":"板橋大遠百","fb":"https://www.facebook.com/profile.php?id=61584956488867","line":"@585clqqg","region":"新北市","brand":"Funbox"},{"name":"新竹巨城","fb":"https://www.facebook.com/share/1D2TZJ7pr3/?mibextid=wwXIfr","line":"@532otwmb","region":"新竹市","brand":"Funbox"},{"name":"美麗華","fb":"https://www.facebook.com/profile.php?id=61592730395195","line":"@660hextn","region":"台北市","brand":"Funbox"},{"name":"中壢大江","fb":"https://www.facebook.com/profile.php?id=100063657227053","line":"@099ldnvw","region":"桃園市","brand":"Funbox"},{"name":"新月廣場","fb":"https://www.facebook.com/funboxtoyluna/","line":"@027iendl","region":"宜蘭縣","brand":"Funbox"},{"name":"潤泰南港車站店","fb":"https://www.facebook.com/profile.php?id=61592736394851","line":"@924tguor","region":"台北市","brand":"Funbox"},{"name":"苗栗尚順","fb":"https://www.facebook.com/share/1DZmr5Njyk/?mibextid=wwXIfr","line":"@185vowmo","region":"苗栗縣","brand":"Funbox"},{"name":"汐科遠雄","fb":"https://www.facebook.com/profile.php?id=61592991209842","line":"@mhb3876c","region":"新北市","brand":"Funbox"},{"name":"桃園環球A8","fb":"https://www.facebook.com/profile.php?id=61591728303067","line":"@lae4656h","region":"桃園市","brand":"Funbox"},{"name":"新竹遠雄湳雅","fb":"https://www.facebook.com/profile.php?id=61592712696197","line":"@agl4214l","region":"新竹市","brand":"Funbox"},{"name":"樹林秀泰","fb":"https://www.facebook.com/profile.php?id=61591486063647","line":"@046txnme","region":"新北市","brand":"Funbox"},{"name":"淡水禮萊廣場","fb":"https://www.facebook.com/share/1Db8rVD6Hk/?mibextid=wwXIfr","line":"@944creff","region":"新北市","brand":"Funbox"},{"name":"天母三越","fb":"https://www.facebook.com/share/1K6XRBMujq/","line":"@237annfd","region":"台北市","brand":"Funbox"},{"name":"遠百信義A13","fb":"https://www.facebook.com/profile.php?id=61551944767554","line":"@020sqlyp","region":"台北市","brand":"Funbox"},{"name":"台茂購物中心","fb":"https://www.facebook.com/profile.php?id=61590975990981&locale=zh_TW","line":"@504tdsbb","region":"桃園市","brand":"Funbox"},{"name":"宏匯廣場","fb":"https://www.facebook.com/funbox.honhui","line":"@513vgbqo","region":"新北市","brand":"Funbox"},{"name":"桃園環球A19","fb":"https://www.facebook.com/profile.php?id=100083960592067","line":"@403qwxdn","region":"桃園市","brand":"Funbox"},{"name":"竹北遠東","fb":"https://www.facebook.com/ZhubeiFunbox/?locale=zh_TW","line":"@642vdyvq","region":"新竹縣","brand":"Funbox"},{"name":"新竹享平方","fb":"https://www.facebook.com/share/193j7smii9/?mibextid=wwXIfr","line":"@062qoqex","region":"新竹縣","brand":"Funbox"},{"name":"新店裕隆城","fb":"https://www.facebook.com/share/19E9UZWhK9/?mibextid=wwXIfr","line":"@491uicsm","region":"新北市","brand":"Funbox"},{"name":"南港LaLaport","fb":"http://www.facebook.com/share/14jPaVWXoLJ/?mibextid=wwXlfr","line":"@924ngwfb","region":"台北市","brand":"Funbox"},{"name":"遠東大巨蛋","fb":"https://reurl.cc/MW3NdL","line":"@248eexma","region":"台北市","brand":"Funbox"},{"name":"台中中友","fb":"https://www.facebook.com/p/Funbox-%E5%8F%B0%E4%B8%AD%E4%B8%AD%E5%8F%8B-100063893358626/","line":"@815dstuy","region":"台中市","brand":"Funbox"},{"name":"豐原太平洋","fb":"https://www.facebook.com/profile.php?id=61592589610506","line":"@094mvrhb","region":"台中市","brand":"Funbox"},{"name":"台中遠東","fb":"https://www.facebook.com/share/1EZCDU6tF1/?mibextid=wwXIfr","line":"@147vfxjr","region":"台中市","brand":"Funbox"},{"name":"廣三SOGO","fb":"https://www.facebook.com/share/1JaCvYo7ao/","line":"@526bsjmb","region":"台中市","brand":"Funbox"},{"name":"台中三越","fb":"https://www.facebook.com/profile.php?id=61591770278850&locale=zh_TW","line":"@833rhkmr","region":"台中市","brand":"Funbox"},{"name":"嘉義遠東","fb":"https://www.facebook.com/profile.php?id=61592768918548","line":"@gno1826d","region":"嘉義市","brand":"Funbox"},{"name":"嘉義耐斯","fb":"https://www.facebook.com/profile.php?id=61591841012874","line":"@121vsdww","region":"嘉義市","brand":"Funbox"},{"name":"嘉義三越","fb":"https://www.facebook.com/share/1ELX2AJ1ue/?mibextid=wwXIfr","line":"@zhj4962p","region":"嘉義市","brand":"Funbox"},{"name":"台中新時代","fb":"https://www.facebook.com/share/1J3PLMbDSN/?mibextid=wwXIfr","line":"@hdg3289a","region":"台中市","brand":"Funbox"},{"name":"文心秀泰","fb":"https://www.facebook.com/share/19F2BoUzUv/?mibextid=wwXIfr","line":"@605dilqq","region":"台中市","brand":"Funbox"},{"name":"麗寶一期","fb":"https://www.facebook.com/profile.php?id=61592814215979&locale=zh_TW","line":"@829adhop","region":"台中市","brand":"Funbox"},{"name":"台中港三井","fb":"https://www.facebook.com/share/1Jj8ybhtUR/?mibextid=wwXIfr","line":"@816xpruh","region":"台中市","brand":"Funbox"},{"name":"台中Lalaport","fb":"https://www.facebook.com/profile.php?id=61591544926718","line":"@620dfrfm","region":"台中市","brand":"Funbox"},{"name":"台中漢神洲際","fb":"https://www.facebook.com/profile.php?id=61592777043158","line":"@218xxrbx","region":"台中市","brand":"Funbox"},{"name":"高雄漢神","fb":"https://www.facebook.com/share/1LrCbM7p9k/?mibextid=wwXIfr","line":"@897upgfr","region":"高雄市","brand":"Funbox"},{"name":"崇光高雄","fb":"https://www.facebook.com/share/19E7invurA/?mibextid=wwXIfr","line":"@845nallq","region":"高雄市","brand":"Funbox"},{"name":"屏東太平洋","fb":"https://www.facebook.com/share/1bsqHbH5yg/?mibextid=wwXIfr","line":"@ess7711t","region":"屏東縣","brand":"Funbox"},{"name":"台南遠百","fb":"https://www.facebook.com/share/19JiPRLTe3/?mibextid=wwXIfr","line":"@373rxyat","region":"台南市","brand":"Funbox"},{"name":"高雄大遠百","fb":"https://www.facebook.com/share/1Asnih4jRc/?mibextid=wwXIfr","line":"@204edsnm","region":"高雄市","brand":"Funbox"},{"name":"台南西門","fb":"https://www.facebook.com/share/1EgGWhL2my/?mibextid=wwXIfr","line":"@344rybaf","region":"台南市","brand":"Funbox"},{"name":"漢神巨蛋","fb":"https://www.facebook.com/share/1JMvwfTqpu/?mibextid=wwXIfr","line":"@ldh6278d","region":"高雄市","brand":"Funbox"},{"name":"高雄左營","fb":"https://www.facebook.com/100057115973730/","line":"@obz8096L","region":"高雄市","brand":"Funbox"},{"name":"夢時代二館","fb":"https://www.facebook.com/share/1iiWSKHcvP/?mibextid=wwXIfr","line":"@ott3541o","region":"高雄市","brand":"Funbox"},{"name":"屏東環球","fb":"https://m.facebook.com/profile.php?id=61591804545442","line":"@xhi2668e","region":"屏東縣","brand":"Funbox"},{"name":"南紡購物中心","fb":"https://www.facebook.com/profile.php?id=100057043616291&mibextid=wwXIfr&mibextid=wwXIfr","line":"@msq0107x","region":"台南市","brand":"Funbox"},{"name":"澎坊商場","fb":"https://www.facebook.com/share/1G6GUr5oYt/?mibextid=wwXIfr","line":"@185ybuaz","region":"澎湖縣","brand":"Funbox"},{"name":"高雄大立","fb":"https://www.facebook.com/share/1CLmgDDbFw/","line":"@917hatdy","region":"高雄市","brand":"Funbox"},{"name":"義大二館","fb":"https://www.facebook.com/share/1BwVM2Q3UP","line":"@bxd6822t","region":"高雄市","brand":"Funbox"},{"name":"義享天地","fb":"https://www.facebook.com/share/1EGnZY5Wad/","line":"@777nkbeo","region":"高雄市","brand":"Funbox"},{"name":"大魯閣新光","fb":"https://www.facebook.com/share/1EhNbSScWd/","line":"@fko7562c","region":"高雄市","brand":"Funbox"},{"name":"台南三井","fb":"https://www.facebook.com/share/1981qXi5wG/","line":"@212isujx","region":"台南市","brand":"Funbox"},{"name":"花蓮遠東","fb":"https://www.facebook.com/share/1Bq2zmw7FK/?mibextid=wwXIfr","line":"@ymc0892z","region":"花蓮縣","brand":"Funbox"},{"name":"台東秀泰","fb":"https://www.facebook.com/share/1BTxAEJsEC/?mibextid=wwXIfr","line":"@438glrqv","region":"台東縣","brand":"Funbox"},{"name":"來玩聚-台北地下街店","region":"台北市","line":"@453cqkyj","fb":"","brand":"來玩聚"},{"name":"來玩聚-新楠家樂福","region":"高雄市","line":"@022itqlw","fb":"","brand":"來玩聚"},{"name":"來玩聚-台南新仁家樂福","region":"台南市","line":"@162fxyom","fb":"","brand":"來玩聚"},{"name":"來玩聚-彰化家樂福","region":"彰化縣","line":"@766sgllj","fb":"","brand":"來玩聚"},{"name":"來玩聚-員林大潤發","region":"彰化縣","line":"@958tzuco","fb":"","brand":"來玩聚"},{"name":"來玩聚-斗六家樂福","region":"雲林縣","line":"@rsp8657s","fb":"","brand":"來玩聚"},{"name":"來玩聚-鳳山家樂福","region":"高雄市","line":"@189yvcce","fb":"","brand":"來玩聚"},{"name":"來玩聚-楠梓家樂福","region":"高雄市","line":"@241cmnww","fb":"","brand":"來玩聚"},{"name":"來玩聚-新屏家樂福","region":"屏東縣","line":"@308oaews","fb":"","brand":"來玩聚"},{"name":"來玩聚-台東家樂福","region":"台東縣","line":"@114pqrny","fb":"","brand":"來玩聚"}];
-const state={brand:"全部",region:"全部",q:"",unchecked:false};
-const KEY="s77-beyblade-checked-v2";
-let checked=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"));
-const regions=["全部",...new Set(STORES.map(s=>s.region))];
-const brands=["全部","Funbox","來玩聚"];
-
+const state={mode:"active",region:"全部",q:"",unchecked:false};
+const KEY="s77-beyblade-visited-20261106";
+let visited=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"));
+const idActive=x=>"a:"+x.href;
+const idStore=x=>"s:"+x.line;
+function save(){localStorage.setItem(KEY,JSON.stringify([...visited]))}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]))}
-function save(){localStorage.setItem(KEY,JSON.stringify([...checked]))}
-function idOf(s){return s.line.replace(/^@/,"").toLowerCase()}
-function isChecked(s){return checked.has(idOf(s))}
-function mark(s){checked.add(idOf(s));save();render()}
+function data(){return state.mode==="active"?ACTIVE:STORES}
+function idOf(x){return state.mode==="active"?idActive(x):idStore(x)}
+function isVisited(x){return visited.has(idOf(x))}
+function mark(x){visited.add(idOf(x));save();render()}
+function regions(){return ["全部",...new Set(data().map(x=>x.city||x.region).filter(Boolean))]}
 function filtered(){
-  const q=state.q.trim().toLowerCase();
-  return STORES.filter(s=>{
-    if(state.brand!=="全部"&&s.brand!==state.brand)return false;
-    if(state.region!=="全部"&&s.region!==state.region)return false;
-    if(state.unchecked&&isChecked(s))return false;
-    if(q&&!([s.name,s.region,s.line,s.brand].join(" ").toLowerCase().includes(q)))return false;
-    return true;
-  });
-}
-function button(text,active,onClick){
-  const b=document.createElement("button");b.className="btn"+(active?" active":"");b.textContent=text;b.onclick=onClick;return b;
+ const q=state.q.trim().toLowerCase();
+ return data().filter(x=>{
+   const region=x.city||x.region||"";
+   if(state.region!=="全部"&&region!==state.region)return false;
+   if(state.unchecked&&isVisited(x))return false;
+   if(q&&!([x.name,region,x.product,x.line,x.brand].join(" ").toLowerCase().includes(q)))return false;
+   return true;
+ });
 }
 function buildFilters(){
-  const bf=document.getElementById("brandFilters");bf.innerHTML="";
-  brands.forEach(x=>{const n=x==="全部"?STORES.length:STORES.filter(s=>s.brand===x).length;bf.appendChild(button(x+" ("+n+")",state.brand===x,()=>{state.brand=x;state.region="全部";buildFilters();render()}))});
-  const rf=document.getElementById("regionFilters");rf.innerHTML="";
-  regions.forEach(x=>{
-    const base=STORES.filter(s=>state.brand==="全部"||s.brand===state.brand);
-    const n=x==="全部"?base.length:base.filter(s=>s.region===x).length;
-    if(x!=="全部"&&n===0)return;
-    rf.appendChild(button(x+" ("+n+")",state.region===x,()=>{state.region=x;buildFilters();render()}));
-  });
+ const box=document.getElementById("regionFilters");box.innerHTML="";
+ regions().forEach(r=>{
+   const n=r==="全部"?data().length:data().filter(x=>(x.city||x.region)===r).length;
+   const b=document.createElement("button");b.className="btn"+(state.region===r?" active":"");b.textContent=r+" ("+n+")";
+   b.onclick=()=>{state.region=r;buildFilters();render()};box.appendChild(b);
+ });
 }
 function render(){
-  const list=filtered(),grid=document.getElementById("grid");grid.innerHTML="";
-  list.forEach(s=>{
-    const card=document.createElement("div");card.className="card"+(isChecked(s)?" checked":"");
-    const fb=s.fb?'<a class="action fb '+(isChecked(s)?"visited":"")+'" href="'+esc(s.fb)+'" target="_blank" rel="noopener" data-check>Facebook</a>':"";
-    card.innerHTML='<div class="top"><div><div class="name">'+esc(s.name)+'</div><div class="meta">'+esc(s.region)+' · '+esc(s.line)+'</div></div><span class="badge">'+esc(s.brand)+'</span></div><div class="actions '+(s.fb?"":"one")+'"><a class="action line '+(isChecked(s)?"visited":"")+'" href="https://line.me/ti/p/~'+encodeURIComponent(s.line)+'" target="_blank" rel="noopener" data-check>LINE 抽選</a>'+fb+'</div>';
-    card.querySelectorAll("[data-check]").forEach(a=>a.addEventListener("click",()=>mark(s)));
-    grid.appendChild(card);
-  });
-  document.getElementById("empty").style.display=list.length?"none":"block";
-  document.getElementById("countText").textContent="目前顯示 "+list.length+" / "+STORES.length+" 家";
-  document.getElementById("progressText").textContent="已檢查 "+checked.size+" 家";
-  document.getElementById("uncheckedBtn").classList.toggle("active",state.unchecked);
+ const list=filtered(),grid=document.getElementById("grid");grid.innerHTML="";
+ list.forEach(x=>{
+   const c=document.createElement("div");c.className="card"+(isVisited(x)?" checked":"");
+   if(state.mode==="active"){
+     c.innerHTML='<div class="top"><div><div class="name">'+esc(x.name)+'</div><div class="meta">'+esc(x.city)+'<br>'+esc(x.time)+'</div></div><span class="badge">抽選中</span></div><div class="product">'+esc(x.product)+'</div><div class="actions one"><a class="action draw" href="'+esc(x.href)+'" target="_blank" rel="noopener" data-go>立即抽選</a></div>';
+   }else{
+     const fb=x.fb?'<a class="action fb" href="'+esc(x.fb)+'" target="_blank" rel="noopener" data-go>Facebook</a>':"";
+     c.innerHTML='<div class="top"><div><div class="name">'+esc(x.name)+'</div><div class="meta">'+esc(x.region)+' · '+esc(x.line)+'</div></div><span class="badge">'+esc(x.brand)+'</span></div><div class="actions '+(x.fb?"":"one")+'"><a class="action line" href="https://line.me/ti/p/~'+encodeURIComponent(x.line)+'" target="_blank" rel="noopener" data-go>LINE</a>'+fb+'</div>';
+   }
+   c.querySelectorAll("[data-go]").forEach(a=>a.addEventListener("click",()=>mark(x)));
+   grid.appendChild(c);
+ });
+ document.getElementById("empty").style.display=list.length?"none":"block";
+ document.getElementById("countText").textContent="顯示 "+list.length+" / "+data().length+" 家";
+ const done=data().filter(isVisited).length;
+ document.getElementById("progressText").textContent=(state.mode==="active"?"已抽 ":"已查看 ")+done+" 家";
+ document.getElementById("uncheckedBtn").textContent=state.mode==="active"?"只看未抽":"只看未檢查";
+ document.getElementById("nextBtn").textContent=state.mode==="active"?"下一家抽選":"下一家 LINE";
+ document.getElementById("uncheckedBtn").classList.toggle("active",state.unchecked);
 }
+function setMode(m){
+ state.mode=m;state.region="全部";state.q="";state.unchecked=false;document.getElementById("q").value="";
+ document.getElementById("tabActive").classList.toggle("active",m==="active");
+ document.getElementById("tabStores").classList.toggle("active",m==="stores");
+ buildFilters();render();
+}
+document.getElementById("tabActive").onclick=()=>setMode("active");
+document.getElementById("tabStores").onclick=()=>setMode("stores");
 document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value;render()});
 document.getElementById("uncheckedBtn").onclick=()=>{state.unchecked=!state.unchecked;render()};
-document.getElementById("clearBtn").onclick=()=>{checked.clear();save();render()};
+document.getElementById("clearBtn").onclick=()=>{visited.clear();save();render()};
 document.getElementById("nextBtn").onclick=()=>{
-  const s=filtered().find(x=>!isChecked(x))||filtered()[0];
-  if(!s)return;
-  mark(s);
-  window.open("https://line.me/ti/p/~"+encodeURIComponent(s.line),"_blank","noopener");
+ const s=filtered().find(x=>!isVisited(x))||filtered()[0];if(!s)return;mark(s);
+ const url=state.mode==="active"?s.href:"https://line.me/ti/p/~"+encodeURIComponent(s.line);
+ window.open(url,"_blank","noopener");
 };
 buildFilters();render();
 </script>
-</body>
-</html>
+</body></html>
