@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>幸運抽籤祝福｜S77 戰鬥陀螺抽籤助手</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#6b7280;--border:#e5e7eb;--navy:#13213a;--gold:#e6a817;--green:#16a34a;--red:#d9485f}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#fff7df 0,#f5f7fb 42%,#eef2f7 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",Arial,sans-serif}
+.wrap{max-width:720px;margin:auto;padding:18px 14px 42px}
+.back{display:inline-flex;align-items:center;gap:6px;color:#334155;text-decoration:none;font-weight:800;font-size:14px;margin-bottom:14px}
+.hero{text-align:center;padding:12px 4px 18px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.18em;color:#9a6d00}.hero h1{font-size:30px;margin:7px 0 8px}.hero p{color:var(--muted);line-height:1.65;margin:0 auto;max-width:580px}
+.stage{position:relative;background:rgba(255,255,255,.9);border:1px solid rgba(229,231,235,.95);border-radius:24px;padding:24px 18px 20px;box-shadow:0 14px 36px rgba(15,23,42,.08);overflow:hidden}
+.stage:before,.stage:after{content:"";position:absolute;border-radius:50%;filter:blur(1px);opacity:.35}.stage:before{width:170px;height:170px;background:#fde68a;top:-75px;left:-70px}.stage:after{width:150px;height:150px;background:#bfdbfe;right:-65px;bottom:-65px}
+.omikuji{position:relative;z-index:1;width:170px;height:220px;margin:0 auto 20px;background:linear-gradient(180deg,#1f2f49,#101827);border-radius:24px 24px 16px 16px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),0 18px 28px rgba(15,23,42,.2)}
+.omikuji:before{content:"LUCKY DRAW";position:absolute;top:20px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.18em;color:#fef3c7;font-weight:900;white-space:nowrap}
+.slot{position:absolute;top:61px;left:26px;right:26px;height:13px;border-radius:999px;background:#070b12;box-shadow:inset 0 2px 3px rgba(0,0,0,.55)}
+.ticket{position:absolute;left:50%;top:78px;transform:translateX(-50%);width:92px;height:104px;border-radius:10px;background:linear-gradient(#fffdf5,#fff7da);border:1px solid #f3d98b;display:flex;align-items:center;justify-content:center;font-weight:950;font-size:28px;color:#6b4d00;writing-mode:vertical-rl;letter-spacing:.08em;box-shadow:0 8px 12px rgba(0,0,0,.14)}
+.shake{animation:shake .8s ease}
+@keyframes shake{0%,100%{transform:rotate(0)}15%{transform:rotate(-4deg)}30%{transform:rotate(4deg)}45%{transform:rotate(-3deg)}60%{transform:rotate(3deg)}75%{transform:rotate(-2deg)}}
+.drawbtn{position:relative;z-index:1;width:100%;border:0;border-radius:14px;padding:14px 18px;background:linear-gradient(135deg,#f0b429,#d99600);color:#fff;font-size:17px;font-weight:950;cursor:pointer;box-shadow:0 8px 18px rgba(217,150,0,.25)}
+.drawbtn:active{transform:translateY(1px)}.drawbtn:disabled{opacity:.7;cursor:default}
+.result{display:none;position:relative;z-index:1;margin-top:18px;border-top:1px dashed var(--border);padding-top:18px;text-align:center}
+.result.show{display:block}.rank{font-size:40px;font-weight:950;letter-spacing:.04em;margin-bottom:6px}.rank.small-good{color:#2563eb}.rank.good{color:#15803d}.rank.great{color:#c28100}.rank.bad{color:#b42318}.rank.small-bad{color:#9f1239}
+.blessing{font-size:18px;font-weight:850;line-height:1.55;margin:6px auto 10px;max-width:560px}.sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.secondary,.primary{display:flex;align-items:center;justify-content:center;text-decoration:none;border-radius:12px;padding:12px 13px;font-weight:900;font-size:14px}.secondary{background:#eef2f7;color:#334155;border:1px solid #dbe2ea}.primary{background:#13213a;color:#fff}
+.legend{margin-top:16px;display:flex;justify-content:center;gap:7px;flex-wrap:wrap}.chip{font-size:12px;font-weight:800;padding:6px 9px;border-radius:999px;background:#fff;border:1px solid var(--border);color:#475569}
+.note{margin-top:16px;color:#64748b;font-size:12px;line-height:1.6;text-align:center}
+@media(max-width:520px){.wrap{padding:12px 10px 32px}.hero h1{font-size:25px}.stage{padding:20px 14px 16px;border-radius:18px}.omikuji{width:154px;height:205px}.ticket{width:86px;height:98px;font-size:25px}.rank{font-size:36px}.blessing{font-size:17px}.actions{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.shake{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="./index.html">← 回正式抽籤</a>
+<div class="hero">
+  <div class="eyebrow">BEYBLADE LUCKY FORTUNE</div>
+  <h1>幸運抽籤祝福</h1>
+  <p>正式抽籤前先抽一張今日籤勢。所有籤都是祝福，就算抽到「凶」也代表先把凶運抽掉，讓好運留給真正的商品抽籤。</p>
+</div>
+
+<section class="stage">
+  <div id="box" class="omikuji" aria-hidden="true">
+    <div class="slot"></div>
+    <div id="ticket" class="ticket">祝福籤</div>
+  </div>
+  <button id="drawBtn" class="drawbtn" type="button">抽一張今日祝福籤</button>
+
+  <div id="result" class="result" aria-live="polite">
+    <div id="rank" class="rank"></div>
+    <div id="blessing" class="blessing"></div>
+    <div id="sub" class="sub"></div>
+    <div class="actions">
+      <button id="againBtn" class="secondary" type="button">再抽一次</button>
+      <a class="primary" href="./index.html">帶著祝福去正式抽籤 →</a>
+    </div>
+  </div>
+</section>
+
+<div class="legend">
+  <span class="chip">小吉</span><span class="chip">吉</span><span class="chip">大吉</span><span class="chip">凶＝凶運先排除</span><span class="chip">小凶＝先消耗小波折</span>
+</div>
+<div class="note">純娛樂祝福小遊戲，不影響實際抽選機率。真正的幸運，留給下一個按下「直接抽籤」的瞬間。</div>
+</div>
+
+<script>
+(function(){
+  const root=document;
+  const box=root.getElementById('box');
+  const ticket=root.getElementById('ticket');
+  const drawBtn=root.getElementById('drawBtn');
+  const againBtn=root.getElementById('againBtn');
+  const result=root.getElementById('result');
+  const rankEl=root.getElementById('rank');
+  const blessingEl=root.getElementById('blessing');
+  const subEl=root.getElementById('sub');
+
+  const fortunes=[
+    {rank:'小吉',cls:'small-good',sub:'穩穩前進就是最好的運氣。',lines:[
+      '今天手感很順，容易抽到你真正想要的那一家。',
+      '小小好運已經上線，接下來每一次點擊都比上一抽更接近目標。',
+      '今天適合慢慢抽、穩穩中，幸運會從不起眼的門市出現。',
+      '看似普通的一抽，可能藏著意外驚喜。',
+      '你的好運正在升溫，先從第一家開始就對了。',
+      '今天是耐心型幸運，越往後抽越有感。'
+    ]},
+    {rank:'吉',cls:'good',sub:'氣勢不錯，適合直接開抽。',lines:[
+      '今日抽選氣場順暢，容易遇到名額還很有餘裕的門市。',
+      '好運已經排隊進場，今天很適合一口氣連抽。',
+      '你的抽選節奏很對，容易在意想不到的店家拿到好結果。',
+      '今天有「選對店」的運氣，直覺看中的那一家值得先抽。',
+      '幸運值正在高檔，適合把想抽的店一次跑完。',
+      '今天的關鍵字是「順」，抽選流程會比你預期更順利。'
+    ]},
+    {rank:'大吉',cls:'great',sub:'今天就是要有氣勢。',lines:[
+      '大吉加持！有機會抽到理想門市，也祝你最後拿到高重好個體。',
+      '今日幸運爆表，適合直接開啟自動連抽模式一路衝。',
+      '你今天有強運護體，祝你抽選中籤、開盒再中高重。',
+      '大吉降臨，人氣店也值得勇敢試一輪。',
+      '今天是「該出手就出手」的日子，祝你抽到心中的第一順位。',
+      '幸運齒輪已經咬合，祝你抽選、取貨、實戰一路順。'
+    ]},
+    {rank:'凶',cls:'bad',sub:'別怕，凶籤是先幫你把凶運抽掉。',lines:[
+      '恭喜先把凶運抽走了，真正抽選時只留下好運；再祝你拿到高重陀螺。',
+      '這張凶籤是避雷符：今天容易避開額滿門市，直接找到還有機會的店。',
+      '凶運已在小遊戲裡消耗完畢，正式抽籤請放心往前衝。',
+      '先凶後吉！把不順留在這張籤，祝你正式抽選反而一路順。',
+      '這不是壞籤，是替你擋掉一次空手而回；接下來更值得抽。',
+      '今天的凶只負責清場，讓真正的幸運有位置進來。'
+    ]},
+    {rank:'小凶',cls:'small-bad',sub:'小波折先在這裡消耗掉。',lines:[
+      '小凶已用掉，祝你等等抽到名額充足、取貨方便的門市。',
+      '今天可能多按幾家才中，但好消息通常就在下一家。',
+      '先遇一點小波折，後面更容易出現驚喜結果。',
+      '小凶代表提醒：別只鎖定熱門店，冷門門市可能才是你的幸運點。',
+      '今天適合廣撒網，多抽幾家，幸運會從其中一間冒出來。',
+      '把小不順留在這張籤，正式抽選就照自己的節奏走。'
+    ]}
+  ];
+
+  function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+  function draw(){
+    drawBtn.disabled=true;
+    result.classList.remove('show');
+    box.classList.remove('shake');
+    void box.offsetWidth;
+    box.classList.add('shake');
+    ticket.textContent='抽籤中';
+    setTimeout(function(){
+      const f=pick(fortunes);
+      const line=pick(f.lines);
+      ticket.textContent=f.rank;
+      rankEl.textContent=f.rank;
+      rankEl.className='rank '+f.cls;
+      blessingEl.textContent=line;
+      subEl.textContent=f.sub;
+      result.classList.add('show');
+      drawBtn.disabled=false;
+      drawBtn.textContent='再抽一張今日祝福籤';
+    },820);
+  }
+
+  drawBtn.addEventListener('click',draw);
+  againBtn.addEventListener('click',draw);
+})();
+</script>
+</body>
+</html>
