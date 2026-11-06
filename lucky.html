@@ -98,6 +98,72 @@ inset 0 -7px 9px rgba(15,18,77,.5),
 .note{margin-top:16px;color:#64748b;font-size:12px;line-height:1.6;text-align:center}
 @media(max-width:520px){.wrap{padding:12px 10px 32px}.hero h1{font-size:25px}.stage{padding:20px 14px 16px;border-radius:18px}.arena{width:242px;height:242px}.bey{width:144px;height:144px}.bey-metal{inset:28px}.bey-blade{inset:41px}.bey-core{inset:54px}.wing{width:78px;height:50px}.bey-tip{bottom:-30px;width:32px;height:34px}.rank{font-size:36px}.blessing{font-size:17px}.actions{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.bey.spinning{animation:beySpinReduced .48s ease forwards}.arena.active{animation:none}.arena.burst .energy-rays span{animation-duration:.25s}.arena.burst .shockwave,.arena.burst .shockwave2{animation-duration:.35s}@keyframes beySpinReduced{from{transform:translate(-50%,-50%) rotate(0deg) scaleY(.9)}to{transform:translate(-50%,-50%) rotate(360deg) scaleY(.9)}}}
+
+/* High-detail photo-based 3D bey, built from the supplied reference image */
+.arena{perspective:760px}
+.bey{
+  left:50%;top:47%;
+  width:202px;height:202px;
+  transform-style:preserve-3d;
+  transform:translate(-50%,-50%) rotateX(54deg) rotateZ(-8deg);
+  filter:drop-shadow(0 22px 15px rgba(3,8,20,.42));
+  border-radius:0;
+}
+.bey:before,.bey:after{display:none!important}
+.bey-photo{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  pointer-events:none;user-select:none;-webkit-user-drag:none;
+  transform-origin:center;
+}
+.bey-photo.depth-5{transform:translateY(17px);filter:brightness(.24) saturate(1.35) hue-rotate(3deg);opacity:.86}
+.bey-photo.depth-4{transform:translateY(13px);filter:brightness(.32) saturate(1.35);opacity:.9}
+.bey-photo.depth-3{transform:translateY(9px);filter:brightness(.42) saturate(1.25);opacity:.92}
+.bey-photo.depth-2{transform:translateY(6px);filter:brightness(.58) saturate(1.18);opacity:.95}
+.bey-photo.depth-1{transform:translateY(3px);filter:brightness(.76) saturate(1.1);opacity:.98}
+.bey-photo.top{
+  z-index:7;
+  filter:saturate(1.08) contrast(1.04) drop-shadow(0 2px 1px rgba(255,255,255,.22));
+}
+.bey-gloss{
+  position:absolute;z-index:8;left:18%;top:11%;width:42%;height:22%;
+  border-radius:50%;
+  background:linear-gradient(155deg,rgba(255,255,255,.76),rgba(255,255,255,.2) 38%,transparent 72%);
+  filter:blur(1px);transform:rotate(-18deg);mix-blend-mode:screen;pointer-events:none;
+}
+.bey-rim-light{
+  position:absolute;z-index:9;inset:10%;
+  border-radius:50%;box-shadow:inset -8px -10px 18px rgba(10,15,76,.34),inset 8px 6px 14px rgba(94,227,255,.18);
+  pointer-events:none;
+}
+.bey-tip{
+  display:block!important;
+  left:50%;bottom:-37px;width:39px;height:44px;
+  transform:translateX(-50%) rotateX(-22deg);
+  border-radius:11px 11px 52% 52%;
+  background:linear-gradient(180deg,#314ba0 0,#262878 42%,#452b86 70%,#171438 100%);
+  box-shadow:inset 0 7px 6px rgba(126,201,255,.28),inset 0 -8px 9px rgba(0,0,0,.5),0 8px 10px rgba(0,0,0,.3);
+  z-index:-4;
+}
+.bey.spinning{animation:beyPhotoSpin 2.65s cubic-bezier(.05,.75,.18,1) forwards}
+@keyframes beyPhotoSpin{
+  0%{transform:translate(-50%,-50%) rotateX(54deg) rotateZ(-8deg) scale(.94)}
+  10%{transform:translate(-50%,-50%) rotateX(55deg) rotateZ(620deg) scale(1.03)}
+  52%{transform:translate(-50%,-50%) rotateX(53deg) rotateZ(2880deg) scale(1.08)}
+  80%{transform:translate(-50%,-50%) rotateX(55deg) rotateZ(3740deg) scale(1.025)}
+  100%{transform:translate(-50%,-50%) rotateX(54deg) rotateZ(4040deg) scale(1)}
+}
+@media(max-width:520px){
+  .bey{width:172px;height:172px}
+  .bey-tip{bottom:-31px;width:34px;height:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  .bey.spinning{animation:beyPhotoSpinReduced .5s ease forwards}
+  @keyframes beyPhotoSpinReduced{
+    from{transform:translate(-50%,-50%) rotateX(54deg) rotateZ(-8deg)}
+    to{transform:translate(-50%,-50%) rotateX(54deg) rotateZ(352deg)}
+  }
+}
+
 </style>
 </head>
 <body>
@@ -115,14 +181,14 @@ inset 0 -7px 9px rgba(15,18,77,.5),
     <div class="bey-shadow"></div>
     <div class="motion-ring"></div>
     <div id="bey" class="bey">
-      <div class="bey-ring"></div>
-      <div class="wing w1"></div>
-      <div class="wing w2"></div>
-      <div class="wing w3"></div>
-      <div class="bey-metal"></div>
-      <div class="bey-blade"></div>
-      <div class="bey-core"></div>
-      <div class="bey-core-mark"></div>
+      <img class="bey-photo depth-5" src="./assets/reference-bey.svg" alt="">
+      <img class="bey-photo depth-4" src="./assets/reference-bey.svg" alt="">
+      <img class="bey-photo depth-3" src="./assets/reference-bey.svg" alt="">
+      <img class="bey-photo depth-2" src="./assets/reference-bey.svg" alt="">
+      <img class="bey-photo depth-1" src="./assets/reference-bey.svg" alt="">
+      <img class="bey-photo top" src="./assets/reference-bey.svg" alt="">
+      <div class="bey-gloss"></div>
+      <div class="bey-rim-light"></div>
       <div class="bey-tip"></div>
     </div>
     <div class="energy-rays">
