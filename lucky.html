@@ -229,7 +229,7 @@ box-shadow:inset 0 0 0 5px rgba(255,255,255,.42),inset 0 -18px 26px rgba(25,39,5
     later(()=>{status.textContent='碰撞！';impact.classList.add('flash')},1250);
     later(()=>{
       impact.classList.remove('flash');void impact.offsetWidth;impact.classList.add('flash');
-      const outcome=pick(outcomes);
+      const outcome={...pick(outcomes)};
       const loser=Math.random()<.5?topA:topB;
       const winner=loser===topA?topB:topA;
       if(outcome.type==='two-left' && loser===topB) outcome.type='two-right';
