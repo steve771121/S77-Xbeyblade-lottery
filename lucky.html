@@ -24,7 +24,7 @@ box-shadow:inset 0 0 0 5px rgba(255,255,255,.42),inset 0 -18px 26px rgba(25,39,5
 .hole-left{left:10%;top:48%;width:74px;height:40px}.hole-right{right:10%;top:48%;width:74px;height:40px}.hole-center{left:50%;top:65%;width:94px;height:48px;transform:translateX(-50%) rotateX(60deg)}
 .top-wrap{position:absolute;z-index:8;width:112px;height:112px;transform:translate(-50%,-50%);will-change:left,top,transform,opacity}
 .top-a{left:24%;top:35%}.top-b{left:76%;top:37%}
-.top-model{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-8deg);filter:drop-shadow(0 13px 9px rgba(4,10,22,.38))}
+.top-model{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-8deg);filter:none}
 .rotor{position:absolute;inset:0;transform-origin:center;animation:idleSpin 1.4s linear infinite}
 .layer{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%}
 .shell{width:108px;height:108px;background:conic-gradient(from 8deg,#69ecff 0 8%,#168ac7 8% 14%,#203273 14% 21%,#67e7ff 21% 29%,#0f6fb2 29% 37%,#291e79 37% 45%,#64e4ff 45% 53%,#1075bd 53% 61%,#251c78 61% 69%,#62eaff 69% 77%,#1280bf 77% 85%,#1c286b 85% 93%,#6beaff 93% 100%);clip-path:polygon(50% 0,59% 14%,76% 5%,82% 23%,100% 31%,87% 46%,99% 59%,80% 68%,87% 88%,65% 84%,56% 100%,43% 86%,25% 98%,22% 77%,4% 83%,14% 62%,0 49%,16% 37%,8% 17%,31% 19%);box-shadow:inset 0 5px 6px rgba(255,255,255,.62),inset 0 -8px 11px rgba(11,28,87,.5)}
@@ -47,7 +47,7 @@ box-shadow:inset 0 0 0 5px rgba(255,255,255,.42),inset 0 -18px 26px rgba(25,39,5
 .impact.flash span{animation:sparkRay .62s ease-out forwards}
 @keyframes impactFlash{0%{opacity:0}12%{opacity:1}100%{opacity:0}}
 @keyframes sparkRay{0%{opacity:0;transform:rotate(var(--a)) scaleX(.05)}18%{opacity:1}100%{opacity:0;transform:rotate(var(--a)) scaleX(1.65)}}
-.top-wrap.winner .top-model{filter:drop-shadow(0 13px 9px rgba(4,10,22,.38)) drop-shadow(0 0 13px rgba(255,214,74,.9))}
+.top-wrap.winner .top-model{filter:drop-shadow(0 0 13px rgba(255,214,74,.9))}
 .top-wrap.spinout{animation:spinOut 1.25s ease-out forwards!important}.top-wrap.spinout .top-model{animation:wobble .18s linear infinite}
 @keyframes spinOut{0%{opacity:1}55%{transform:translate(-50%,-50%) translate(44px,38px) scale(.9)}100%{transform:translate(-50%,-50%) translate(86px,65px) scale(.55);opacity:.35}}
 @keyframes wobble{0%,100%{transform:rotateX(58deg) rotateZ(-8deg)}50%{transform:rotateX(69deg) rotateZ(3deg)}}
